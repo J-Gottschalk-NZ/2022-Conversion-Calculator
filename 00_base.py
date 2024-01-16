@@ -103,6 +103,12 @@ def unit_checker(possible_lists):
 def display_int(var_int):
     if var_int % 1 == 0:
         return int(var_int)
+
+    # checks if number has more than six digits after the decimal point.
+    # code via chat GPT
+    elif var_int % 1 != 0 and len(str(var_int).split('.')[1]) > 6:
+        return f"{var_int:.2f}"
+
     else:
         return var_int
 
@@ -122,8 +128,8 @@ time = {
     "s": 3600,
     "min": 60,
     "h": 1,
-    "d": 24,
-    "y": 24 * 365 + 6 + 9/60    # accounts for leap years!
+    "d": 1/24,
+    "y": 1 / (24 * 365 + 6 + 9/60)    # accounts for leap years!
 }
 
 # combines all the dictionaries so that we can look up conversion factors in one place
